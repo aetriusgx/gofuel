@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<%- include('partials/header.ejs') %>
+	<body>
+		<%- include('partials/nav.ejs') %>
+		<%- include('partials/filter_bar.ejs') %>
+		<% if (data.fuel_stations !== undefined && data.fuel_stations.length > 0) { %>
+			<div class="card">
+				<div class="card-body">
+					<h3 class="text-center">
+						<%=data.total_results%> Search Results
+					</h3>
+					<% for (station of data.fuel_stations) {%>
+						<ul class="list-group mx-5 px-5 py-3 position-relative min-vw-75">
+							<li class="list-group-item ">
+								<% if (user_id != 0) { %>
+									<div class="position-absolute top-0 end-0 px-2 py-1">	
+										<i class="bi bi-heart-fill icon-gray"></i>
+									</div>
+								<% } %>
+								<div class="row justify-content-between p-3">
+									<div class="col border-end border-2">
+										<h5><%= station.station_name %> </h5>
+										<br>
+										<%= station.access_days_time %>											
+									</div>
+									<div class="col justify-content-between border-end border-2">
+										<h6>Address</h6>
+										<%= station.street_address %>,
+										<%= station.city %>, <%=station.state%> <%=station.zip%>
+										<br><br>
+										<% if(station.fuel_type_code == "ELEC"){ %>
+                                            <div>
+                                                <% if(station.ev_pricing == undefined) { %> 
+                                                    
+    				                                No results found.
+    			                                    
+                                                <% } else {%>
+													<div class="btn-group">
+														<button type="button" class="btn dropdown-toggle p-0" data-bs-toggle="dropdown" 
+															data-bs-auto-close="outside" aria-expanded="false">
+													    	Pricing
+													  	</button>
+														<ul class="dropdown-menu">
+													    	<li><span class="dropdown-item-text"><%= station.ev_pricing %></span></li>
+													  	</ul>
+													</div>
+                                                <% } %>
+                                            </div>    
+                                        <% } else { %>
+                                            Not Applicable
+                                        <% } %>
+									</div>
+                                    <div class="col justify-content-between">
+                                        <% if (station.google_map_details == undefined) { %>
+											No results from Google Maps
+										<% } else { %>
+											<h5>Google Maps Data</h5>
+											<% if (station.google_map_details.result.rating) { %>
+												Rating: <%= station.google_map_details.result.rating %> <i class="bi bi-star-fill"></i>
+												<br>
+											<% } %>
+											<p>
+												<a href=<%=station.google_map_details.result.url%> 
+													class="link-success link-offset-2 
+													link-underline-opacity-25 link-underline-opacity-100-hover"
+													target="_blank">
+													Google Maps
+													<i class="bi bi-arrow-up-right"></i>
+												</a>
+											</p>
+											<% if (station.google_map_details.result.website) { %>
+												<p>
+													Website: 
+													<a href=<%=station.google_map_details.result.website%> 
+														class="link-success link-offset-2 
+														link-underline-opacity-25 link-underline-opacity-100-hover"
+														target="_blank">
+														Open in new tab
+														<i class="bi bi-arrow-up-right"></i>
+													</a>
+												</p>
+											<% } %>
+										<% } %> 
+									</div>
+								</div>
+							</li>
+						</ul>
+					<% } %>
+						
+					<% if (data.total_results > 10) {%>
+						<ul class="pagination pagination-lg justify-content-center">
+							<% for (let i = 1; i <= Math.ceil(data.total_results / 10); i++) { %>
+								<li class="page-item"><a class="page-link" href="<%=this_url%>&offset=<%=(i-1)*10%>"><%=i%></a></li>
+							<% } %>
+						</ul>
+					<% } %>
+				</div>
+			</div>
+		<% } else { %>
+			<h3 class="text-center">
+				No results found.
+			</h3>
+		<% } %>
+	</body>
+	<%- include('partials/footer.ejs') %>
+</html>

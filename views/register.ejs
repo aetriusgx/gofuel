@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<%- include('partials/header.ejs') %>
+	<body>
+		<%- include('partials/nav.ejs') %>
+		<div class="text-center m-auto p-5 w-50 h-50">
+				<h3>Register</h3>
+				<div class="card my-2">
+					<div class="card-body p-5">
+						<form action="/register" method="POST">
+							<div class="mb-3">
+								<div class="input-group mb-3">
+									<span class="input-group-text" id="basic-addon1">Full Name</span>
+								  	<input type="text" class="form-control" id="inputFullName"
+										placeholder="Full Name" aria-label="Full Name" name="fname"
+										aria-describedby="basic-addon1" required>
+								</div>
+							</div>
+							<div class="my-3">
+								<div class="input-group mb-3">
+									<span class="input-group-text" id="basic-addon1">Email</span>
+								  	<input type="email" class="form-control"  id="inputEmail"
+										placeholder="Email" aria-label="Email" name="email"
+										aria-describedby="basic-addon1" required>
+								</div>
+							</div>
+							<div class="my-3">
+								<div class="input-group mb-3">
+									<span class="input-group-text" id="basic-addon1">Username</span>
+								  	<input type="text" class="form-control" id="inputUsername"
+										placeholder="Username" aria-label="Username" name="username"
+										aria-describedby="basic-addon1" required>
+								</div>
+							</div>
+							<div class="my-3">
+								<div class="input-group mb-3">
+									<span class="input-group-text" id="basic-addon1">Password</span>
+								  	<input type="password" class="form-control" id="inputPassword" 
+										placeholder="Password" aria-label="Password" name="password"
+										aria-describedby="basic-addon1" required>
+								</div>
+							</div>
+							<div class="my-3">
+								<div class="input-group mb-3">
+									<span class="input-group-text" id="basic-addon1">Retype Password</span>
+								  	<input type="password" class="form-control" id="inputRetypePassword"
+										placeholder="Retype Password" aria-label="Retype Password" 
+										aria-describedby="basic-addon1" required> 
+								</div>
+							</div>
+
+							<button class="mx-auto btn btn-primary" type="submit"
+								id="registerSubmit" disabled>
+								Register
+							</button>
+						</form>
+					</div>
+				</div>
+				<h6>
+					<a href="/login">
+						Already a User?
+					</a>
+				</h6>
+
+				<!-- Change this so it appears if an error status is received -->
+				<% if (typeof(err) != undefined) { %>
+					<div class="toast-container position-fixed bottom-0 end-0 p-3">
+						<div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+							<div class="toast-header">
+						    	<strong class="me-auto">Registration Failure</strong>
+						    	<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+					    	</div>
+					    	<div class="toast-body">
+					    		<%=err%>
+					    	</div>
+						</div>
+					</div>
+				<%}%>
+			</div>
+	</body>
+	<%- include('partials/footer.ejs') %>
+	<script src="js/register.js"></script>
+</html>

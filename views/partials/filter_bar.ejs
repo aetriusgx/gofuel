@@ -1,0 +1,61 @@
+<!-- Filter form -->
+<form action="/hit">
+	<div class="row px-3 py-2 align-items-center justify-content-between">
+		<!-- Zipcode -->
+		<div class="col-4">
+			<div class="row">
+				<div class="col-auto">
+					<label for="inputZipcode5" class="col-form-label">Zipcode</label>
+				</div>
+				<div class="col-auto">
+					<input type="number" id="inputZipcode5" name="zipcode"
+						class="form-control" aria-labelledby="zipcodeHelpInline">
+				</div>
+				<div class="col-auto">
+					<span id="zipcodeHelpInline" class="form-text">
+						Must be 5 digits
+					</span>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Price Range -->
+		<div class="col-4">
+			<div class="row align-items-center">
+				<div class="col-auto">
+					<div class="input-group" id="price_range">
+						<label for="price_range" class="col-form-label me-2">Price Range: </label>
+						<span class="input-group-text">$</span>
+						<input type="number" class="form-control" name="price_min"
+							placeholder="Min" aria-label="Minimum Price" id="price_min">
+						<span class="input-group-text">-</span>
+						<span class="input-group-text">$</span>
+					  	<input type="number" class="form-control" name="price_max"
+							placeholder="Max" aria-label="Maximum Price">
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Fuel Type -->
+		<div class="col-3">
+			<div class="form-check form-check-inline">
+				<input class="form-check-input" type="checkbox" value="E85" id="fuelCheck" name="fuel_type">
+				<label class="form-check-label" for="fuelCheck">Ethanol</label>
+			</div>
+			<div class="form-check form-check-inline">
+				<input class="form-check-input" type="checkbox" value="BD" id="fuelCheck" name="fuel_type">
+				<label class="form-check-label" for="fuelCheck">Bio Diesel</label>
+			</div>
+			<div class="form-check form-check-inline">
+				<input class="form-check-input" type="checkbox" value="ELEC" id="fuelCheck" name="fuel_type">
+				<label class="form-check-label" for="fuelCheck">Electric</label>
+			</div>
+		</div>
+					
+		<!-- Submit button -->
+		<div class="col-1 pe-2">
+			<button class="btn btn-success">Apply</button>
+		</div>
+	</div>
+</form>

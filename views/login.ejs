@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<%- include('partials/header.ejs') %>
+	<body>
+		<%- include('partials/nav.ejs') %>
+			<div class="text-center m-auto p-5 w-50 h-50">
+				<h3>Login</h3>
+				<div class="card my-2">
+					<div class="card-body p-5">
+						<form action="/login" method="post">
+							<div class="mb-3">
+								<label class="form-label" for="inputUsername">Username</label>
+								<input type="text" id="inputUsername" name="username"
+									class="form-control" aria-labelledby="usernameHelpBlock" required>
+								<div id="usernameHelpBlock" class="form-text">
+									Your username must be 5-12 characters long. Alphanumerical character are only accepted.
+								</div>
+							</div>
+							<div class="my-3">
+								<label for="inputPassword" class="form-label">Password</label>
+								<input type="password" id="inputPassword" name="password"
+									class="form-control" aria-labelledby="passwordHelpBlock" required>
+								<div id="passwordHelpBlock" class="form-text">
+								  Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+								</div>
+							</div>
+
+							<button class="mx-auto btn btn-primary" id="loginSubmit" disabled>Login</button>
+						</form>
+					</div>
+				</div>
+				<h6>
+					<a href="/register">
+						Not Registered?
+					</a>
+				</h6>
+			</div>
+			<script src="js/login.js"></script>
+	</body>
+	<%- include('partials/footer.ejs') %>
+</html>

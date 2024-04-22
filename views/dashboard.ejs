@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<%- include('partials/header.ejs') %>
+	<body>
+		<%- include('partials/nav.ejs') %>
+		<form action="/edit" method="POST" class="mx-auto p-3 w-25">
+			Username: <input name="username" class="form-control" id="inputUsername" value=<%=userdata.username%>><br>
+			Full Name: <input name="name" class="form-control" id="inputName" value=<%=userdata.full_name%>><br>
+			Password: <input name="password" class="form-control" id="inputPassword" type="password" value=<%=userdata.password%>><br>
+			Retype Password: <input class="form-control" name="rpassword" id="inputRetype" type="password"><br>
+			<button class="btn btn-primary" id="saveButton" disabled>
+				Save Changes
+			</button>
+		</form>
+	</body>
+	
+	<%- include('partials/footer.ejs') %>
+	<script src="js/dashboard.js"></script>
+</html>

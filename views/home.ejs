@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<%- include('partials/header.ejs') %>
+	<body>
+		<%- include('partials/nav.ejs') %>
+		<div class="d-flex flex-column p-5 text-center">
+			<h3 class="mb-3">How to Use</h3>
+			<div class="d-flex flex-row justify-content-around">
+				<div>
+					<h6>Search by Filter</h6>
+					<div class="card" style="width: 20rem;">
+						<img src="/images/search_by_filter.png" class="card-img-top" 
+							alt="Image showing the search page filters">
+						<div class="card-body">
+							<p class="card-text">
+								You can find results for a zipcode. Specify fuel types if you wish, all fuels are searched by default
+							</p>
+						</div>
+					</div>
+				</div>
+				<div>
+					<h6>Search by Station ID</h6>
+					<div class="card" style="width: 20rem;">
+						<img src="/images/search_by_filter.png" class="card-img-top" 
+							alt="Image showing the search page filters">
+						<div class="card-body">
+							<p class="card-text">
+								Tech savvy? Well you can find the exact station you'd like by searching its station ID.	
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="d-flex flex-row justify-content-center">
+				<div>
+					<h6>Save your Favorites</h6>
+					<div class="card" style="width: 20rem;">
+						<img src="/images/search_by_filter.png" class="card-img-top" 
+							alt="Image showing the search page filters">
+						<div class="card-body">
+							<p class="card-text">
+								Save your favorite stations! Users can save their favorites and access them whenever they want!
+								<br>
+								Not a user?
+								<a href="/register">
+									Register now!
+								</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<%- include('partials/footer.ejs') %>
+</html>

@@ -1,0 +1,17 @@
+.gofuel-head-background {
+	background-color: orange;
+	color: white;
+}
+
+.gofuel-head-background h1 a {
+	text-decoration: none;
+	color: White;
+}
+
+.icon-gray {
+  color: gray;
+}
+
+.icon-red {
+  color: red;
+}
